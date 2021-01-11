@@ -7,18 +7,18 @@
 <body>
 <div align="center">
     <h1>Nov Avtomobil</h1>
-    <form action="#" th:action="@{/create}" th:object="${avtomobil}">
+    <form th:action="@{/create}" th:object="${model}" method="post">
         <label>Avtomobil Id:</label>
-        <input type="text" th:field="*{id_avtomobil}" /><br/>
+        <input type="text" th:field="*{id_avtomobil}"/><br/>
 
         <label>Marka:</label>
-        <input type="text" th:field="*{marka}" /><br/>
+        <input type="text" th:field="*{marka}"/><br/>
 
         <label>Model:</label>
-        <input type="text" th:field="*{model}" /><br/>
+        <input type="text" th:field="*{model}"/><br/>
 
         <label>EMBG:</label>
-        <input type="text" th:field="*{EMBGKlient}" /><br/>
+        <input type="text" th:field="*{avtomobil_embg}"/><br/>
 
 
         <button type="submit">Vnesi avtomobil</button>

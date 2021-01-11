@@ -1,25 +1,27 @@
 package web.baziavtoservis.entities;
 
+
 import com.sun.istack.NotNull;
 
-public class Klient extends Chovek {
+import javax.persistence.*;
 
-    private String telefon;
+@Entity
+@Table(name = "klient")
+public class Klient {
 
-    public Klient(String EMBG, String ime, String prezime, String telefon) {
-        super(EMBG, ime, prezime);
-        this.telefon = telefon;
+    @Id
+    @NotNull
+    @Column(name = "embg_klient")
+    @OneToMany(mappedBy = "avtomobil_embg")
+    private String embg_klient;
+
+    public String getEmbg_klient() {
+        return embg_klient;
     }
 
-    public Klient(String telefon) {
-        this.telefon = telefon;
+    public void setEmbg_klient(String embg_klient) {
+        this.embg_klient = embg_klient;
     }
 
-    public String getTelefon() {
-        return telefon;
-    }
 
-    public void setTelefon(String telefon) {
-        this.telefon = telefon;
-    }
 }

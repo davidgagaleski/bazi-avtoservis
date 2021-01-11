@@ -8,13 +8,13 @@
 <div align="center">
     <h1>Avtoservis</h1>
 
-        <form action="NovDefektForm.html">
-            <input type="submit" value="Nov Defekt">
+        <form th:action="@{/novAvtomobilForm}" method="get">
+            <input type="submit" value="Nov Avtomobil">
         </form>
         <br/>
 
-       <form action="NovAvtomobilForm.html">
-           <input type="submit" value="Nov Avtomobil">
+       <form th:action="@{/novDefektForm}" method="get">
+           <input type="submit" value="Nov Defekt">
        </form>
 
 

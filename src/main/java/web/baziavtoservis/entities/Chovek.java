@@ -1,54 +1,51 @@
 package web.baziavtoservis.entities;
 
 import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 
 @Entity
+@Table(name = "chovek")
 public class Chovek {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
-    private String EMBG;
+    @Column(name = "embg")
+    @OneToOne(mappedBy = "avtomehanicar_embg")
+    private String embg;
 
     @NotNull
-    private String Ime;
+    @Column(name = "ime")
+    private String ime;
 
     @NotNull
-    private String Prezime;
+    @Column(name = "prezime")
+    private String prezime;
 
 
-    public Chovek(String EMBG, String ime, String prezime) {
-        this.EMBG = EMBG;
-        Ime = ime;
-        Prezime = prezime;
+    public String getEmbg() {
+        return embg;
     }
 
-    public Chovek(){
-
-    }
-
-    public String getEMBG() {
-        return EMBG;
-    }
-
-    public void setEMBG(String EMBG) {
-        this.EMBG = EMBG;
+    public void setEmbg(String embg) {
+        this.embg = embg;
     }
 
     public String getIme() {
-        return Ime;
+        return ime;
     }
 
     public void setIme(String ime) {
-        Ime = ime;
+        this.ime = ime;
     }
 
     public String getPrezime() {
-        return Prezime;
+        return prezime;
     }
 
     public void setPrezime(String prezime) {
-        Prezime = prezime;
+        this.prezime = prezime;
     }
 }

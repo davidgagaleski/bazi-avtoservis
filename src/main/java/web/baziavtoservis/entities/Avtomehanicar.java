@@ -2,25 +2,36 @@ package web.baziavtoservis.entities;
 
 import com.sun.istack.NotNull;
 
+import javax.persistence.*;
 import java.util.Date;
 
-public class Avtomehanicar extends Chovek {
+@Entity
+@Table(name = "avtomehanicar")
+public class Avtomehanicar {
 
+    @Id
+    @NotNull
+    @Column(name = "embg_avtomehanicar")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_avtomehanicar")
+    @ManyToOne
+    @JoinColumn(name = "defekt_avtomeh_embg")
+    private String avtomehanicar_embg;
+
+    @Column(name = "datum_vrabotuvanje")
     @NotNull
     private Date datum_vrabotuvanje;
 
+    @Column(name = "id_dogovor")
     @NotNull
     private int id_dogovor;
 
-    public Avtomehanicar(String EMBG, String ime, String prezime, Date datum_vrabotuvanje, int id_dogovor) {
-        super(EMBG, ime, prezime);
-        this.datum_vrabotuvanje = datum_vrabotuvanje;
-        this.id_dogovor = id_dogovor;
+    public String getAvtomehanicar_embg() {
+        return avtomehanicar_embg;
     }
 
-    public Avtomehanicar(Date datum_vrabotuvanje, int id_dogovor) {
-        this.datum_vrabotuvanje = datum_vrabotuvanje;
-        this.id_dogovor = id_dogovor;
+    public void setAvtomehanicar_embg(String avtomehanicar_embg) {
+        this.avtomehanicar_embg = avtomehanicar_embg;
     }
 
     public Date getDatum_vrabotuvanje() {

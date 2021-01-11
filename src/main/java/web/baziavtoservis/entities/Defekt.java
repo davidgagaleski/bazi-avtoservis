@@ -1,21 +1,40 @@
 package web.baziavtoservis.entities;
 
-import javax.persistence.Id;
+import com.sun.istack.NotNull;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "defekt")
 public class Defekt {
-    private String opis;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
+    @Column(name = "id_defekt")
+    @ManyToOne
+    @JoinColumn(name = "defekt_avtomeh_embg")
+    @OneToOne
+    @JoinColumn(name = "id_defekt_id")
     private String id_defekt;
 
-    private String id_avtomobil;
+    @Column(name = "opis")
+    private String opis;
+
+    @Column(name = "id_avtomobil_defekt")
+    @OneToMany
+    @JoinColumn(name = "id_avtomobil")
+    private String defekt_avto_id;
+
+    @Column(name = "popraven")
     private boolean popraven;
 
-    public Defekt(String opis, String id_defekt, String id_avtomobil) {
-        this.opis = opis;
+    public String getId_defekt() {
+        return id_defekt;
+    }
+
+    public void setId_defekt(String id_defekt) {
         this.id_defekt = id_defekt;
-        this.id_avtomobil = id_avtomobil;
-        this.popraven = false;
     }
 
     public String getOpis() {
@@ -26,20 +45,12 @@ public class Defekt {
         this.opis = opis;
     }
 
-    public String getId_defekt() {
-        return id_defekt;
+    public String getDefekt_avto_id() {
+        return defekt_avto_id;
     }
 
-    public void setId_defekt(String id_defekt) {
-        this.id_defekt = id_defekt;
-    }
-
-    public String getId_avtomobil() {
-        return id_avtomobil;
-    }
-
-    public void setId_avtomobil(String id_avtomobil) {
-        this.id_avtomobil = id_avtomobil;
+    public void setDefekt_avto_id(String defekt_avto_id) {
+        this.defekt_avto_id = defekt_avto_id;
     }
 
     public boolean isPopraven() {
