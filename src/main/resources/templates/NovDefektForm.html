@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Nov Defekt</title>
+</head>
+<body>
+<div align="center">
+    <h1>Nov Defekt</h1>
+    <form action="#" th:action="@{/create}" th:object="${avtomobil}">
+        <label>Avtomobil Id:</label>
+        <input type="text" th:field="*{id_avtomobil}" /><br/>
+
+        <label>Defekt Id</label>
+        <input type="text" th:field="*{id_defekt}" /><br/>
+
+        <label>Opis:</label>
+        <input type="text" th:field="*{opis}" /><br/>
+
+
+        <button type="submit">Vnesi defekt</button>
+    </form>
+</div>
+</body>
+</html>
