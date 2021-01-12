@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "avtomehanicar")
@@ -12,11 +13,14 @@ public class Avtomehanicar {
     @Id
     @NotNull
     @Column(name = "embg_avtomehanicar")
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_avtomehanicar")
-    @ManyToOne
-    @JoinColumn(name = "defekt_avtomeh_embg")
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "fk_avtomehanicar")
+//    @ManyToOne
+//    @JoinColumn(name = "defekt_avtomeh_embg")
     private String avtomehanicar_embg;
+
+    @ManyToMany
+    private List<Defekt> defekti;
 
     @Column(name = "datum_vrabotuvanje")
     @NotNull

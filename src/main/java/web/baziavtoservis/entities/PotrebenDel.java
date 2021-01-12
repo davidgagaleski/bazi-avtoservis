@@ -35,3 +35,4 @@ public class PotrebenDel {
         this.potreben_del = potreben_del;
     }
 }
+
